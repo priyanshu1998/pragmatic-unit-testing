@@ -1,0 +1,7 @@
+{
+    "dotnet.defaultSolution": "BankManager.slnx",
+    "dotnet-test-explorer.testProjectPath": "**/BankManager.Tests.csproj",
+    "dotnet-test-explorer.useTreeView": true,
+    "dotnet-test-explorer.showCodeLens": true,
+    "dotnet-test-explorer.codeLens": true
+}
