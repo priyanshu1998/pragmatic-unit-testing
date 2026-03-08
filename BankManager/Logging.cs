@@ -4,7 +4,7 @@ namespace BankManager
 {
     public static class Logging
     {
-        private static ILogger _logger;
+        private static ILogger _logger = null!;
         public static ILogger Logger
         {
             get { return _logger ?? (_logger = new FileSystemLogger(@"C:\BankLog.txt")); }

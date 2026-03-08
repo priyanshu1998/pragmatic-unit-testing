@@ -20,4 +20,3 @@ public class SimpleTransactionTests : TransactionTests
             "Calculated transaction should equal the base amount.");
     }
 }
- 
