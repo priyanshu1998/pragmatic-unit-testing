@@ -35,5 +35,52 @@ namespace BankManager.Tests
             Assert.AreEqual(transactionAmount, balance,
                 "After processing a simple transaction, the account balance should equal the transaction amount.");
         }
+
+
+        [TestMethod]
+        [DataRow(0)]
+        [DataRow(10)]
+        [DataRow(-1)]
+        public void GetBalances_WithOneTransaction_ReturnsTotalOfTransactions(int transactionAmount)
+        {
+            var transaction = new SimpleTransaction(transactionAmount);
+
+            _accountRepository.ProcessTransaction(transaction);
+
+            var totalOfTransactions = transaction.CalculateTotalTransaction();
+            var currentBalance = _accountRepository.CheckBalance();
+
+
+            Assert.AreEqual(totalOfTransactions, currentBalance,
+                "After processing a simple transaction, the account balance should equal the transaction amount.");
+        }
+
+
+        public static IEnumerable<Transaction> GetTransactionAmounts()
+        {
+            yield return new SimpleTransaction (0);
+            yield return new SimpleTransaction (10);
+            yield return new SimpleTransaction (-1);
+
+            yield return new FeeTransaction (100, 5);
+        }
+
+
+        [TestMethod]
+        [DynamicData(nameof(GetTransactionAmounts))]
+        public void GetBalances_WithOneTransaction_ReturnsTotalOfTransactions_From_MethodSource(Transaction transaction)
+        {
+            _accountRepository.ProcessTransaction(transaction);
+
+            var totalOfTransactions = transaction.CalculateTotalTransaction();
+            var currentBalance = _accountRepository.CheckBalance();
+
+
+            Assert.AreEqual(totalOfTransactions, currentBalance,
+                "After processing a simple transaction, the account balance should equal the transaction amount.");
+        }
+
+
+
     }
 }
