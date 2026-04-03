@@ -2,15 +2,19 @@
 
 public class Teller
 {
-    readonly List<Transaction> _transactions = [];
+    private readonly AccountRepository _accountRepository;
+    public Teller(AccountRepository accountRepository){
+        _accountRepository = accountRepository;
+    }
+
     public int CheckBalance()
     {
-        return _transactions.Sum(t => t.CalculateTotalTransaction());
+        return _accountRepository.CheckBalance();
     }
 
     public int ProcessTransaction(Transaction amount)
     {
-        _transactions.Add(amount);
+        _accountRepository.ProcessTransaction(amount);
         return CheckBalance();
     }
 
