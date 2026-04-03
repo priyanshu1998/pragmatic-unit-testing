@@ -1,6 +1,6 @@
 # Pragmatic Unit Testing — Patterns & Practices
 
-A hands-on C# / .NET 9 reference project that demonstrates the key design patterns and practices behind **pragmatic unit testing**, built around a simple `BankManager` domain.
+A hands-on C# / .NET 10 reference project that demonstrates the key design patterns and practices behind **pragmatic unit testing**, built around a simple `BankManager` domain.
 
 ---
 
@@ -164,8 +164,8 @@ The `notes/MSTestLifecycle.md` and `notes/TestFrameworkLifecycleComparison.md` f
 | Component | Choice |
 |---|---|
 | Language | C# 13 |
-| Runtime | .NET 9 |
-| Test framework | MSTest v3 |
+| Runtime | .NET 10 |
+| Test framework | MSTest 4 |
 | Mocking library | Moq 4 |
 | Solution format | `.slnx` (new SDK-style solution) |
 
@@ -174,7 +174,7 @@ The `notes/MSTestLifecycle.md` and `notes/TestFrameworkLifecycleComparison.md` f
 ## Getting Started
 
 ### Prerequisites
-- [.NET 9 SDK](https://dotnet.microsoft.com/download)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download)
 
 ### Run all tests
 
@@ -192,12 +192,16 @@ dotnet test --logger "console;verbosity=detailed"
 
 ## How This Repo Differs from the Pluralsight Course
 
+> **Note:** The Pluralsight course *"Patterns for Pragmatic Unit Testing"* uses **NUnit** as its test framework and is **being retired**. This repository modernises the same ideas using **MSTest 4** and **.NET 10**, so the code stays current and runnable long after the course is gone.
+
 The Pluralsight course **"Patterns for Pragmatic Unit Testing"** is a structured video curriculum taught by an instructor. This repository is a **self-study companion project** built alongside those ideas. Here is a clear breakdown of the differences:
 
 | Dimension | Pluralsight Course | This Repository |
 |---|---|---|
 | **Format** | Video-based, instructor-led | Code-first, hands-on project |
-| **Language** | Demonstrated in C# (may also include Java/JS examples depending on module) | C# only (.NET 9 / MSTest) |
+| **Status** | Being retired | Actively maintained |
+| **Language** | Demonstrated in C# (may also include Java/JS examples depending on module) | C# only (.NET 10 / MSTest 4) |
+| **Test framework** | **NUnit** | **MSTest 4** |
 | **Content** | Covers a wide range of patterns, anti-patterns, legacy code strategies, async testing, and more across many modules | Focuses on the *infrastructure* patterns: Global Fixture, Abstract Test Class, Template Test Class, and Moq-based isolation |
 | **Depth** | Goes deeper into theory, rationale, and multiple language examples | Emphasises working, runnable code you can inspect and experiment with |
 | **Golden Master / Legacy Code** | Covered in dedicated modules | Documented in `pragmatic_unit_testing.md` as notes, not yet implemented in code |
