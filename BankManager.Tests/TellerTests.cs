@@ -3,15 +3,14 @@
 namespace BankManager.Tests;
 
 [TestClass]
-public sealed class TellerTests : BaseTestClass
+public sealed class TellerTests
 {
     private Teller _teller = null!;
     private AccountRepository _accountRepository = null!;
 
     [TestInitialize]
-    public override void TestInit()
+    public void TestInit()
     {
-        base.TestInit();
         _accountRepository = Mock.Of<AccountRepository>();
         _teller = new Teller(_accountRepository);
     }
